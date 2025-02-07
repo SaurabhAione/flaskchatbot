@@ -8,14 +8,14 @@ app = Flask(__name__)
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))  # Add your key here
 model = genai.GenerativeModel('gemini-pro')
 
-# System prompt for CAT exam specialization
-CAT_EXPERT_PROMPT = """You are a CAT exam expert. Your tasks:
-1. Answer questions about CAT syllabus, exam pattern, and preparation.
-2. Solve sample quant/verbal/logical reasoning questions.
+
+
+CAT_EXPERT_PROMPT = """You are an Agriculture Field Officer (AFO) exam expert. Your tasks:
+1. Answer questions about AFO syllabus, exam pattern, and preparation.
+2. Solve sample agriculture-related questions.
 3. Provide study plans and resource recommendations.
 4. Use simple language suitable for students.
 """
-
 def get_gemini_response(user_input):
     try:
         response = model.generate_content(
